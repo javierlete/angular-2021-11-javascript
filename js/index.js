@@ -1,6 +1,51 @@
 'use strict';
 
-arrays();
+objetos();
+
+function objetos() {
+    const persona = { nombre: 'Javier' };
+
+    persona.apellidos = 'Lete';
+    persona['cargo'] = 'Profesor';
+    // persona.apellido = 'Otro';
+
+    persona.getNombreCompleto = function() {
+        return `${this.nombre} ${this.apellidos}`;
+    };
+
+    console.log(persona);
+    console.log(persona.nombre);
+    console.log(persona['nombre']);
+    console.log(persona.getNombreCompleto());
+
+    //console.log(persona[prompt('Dime qué quieres ver')]);
+
+    function Persona(nombre = 'Juan', apellidos = 'Nadie') {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+    }
+
+    Persona.prototype.getNombreCompleto = function() {
+        return `${this.nombre} ${this.apellidos}`;
+    };
+
+    const javier = new Persona('Javier', 'Lete');
+    
+    javier.profesion = 'Profesor';
+    
+    console.log(javier);
+    console.log(javier.getNombreCompleto());
+
+    const pepe = new Persona('Pepe');
+
+    console.log(pepe);
+
+    String.prototype.primeraLetra = function() {
+        return this[0];
+    };
+
+    console.log('alksdjflkajsdg'.primeraLetra());
+}
 
 function arrays() {
     const arr = [ 5, 7 ];
